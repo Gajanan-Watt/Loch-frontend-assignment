@@ -12,19 +12,6 @@ const App = () => {
     }
   }, [email]);
 
-  function handleScroll(event) {
-    const scrollContainer = event.target;
-    const icon = document.getElementById("rotateIcon");
-    if (icon) {
-      const maxScroll =
-        scrollContainer.scrollWidth - scrollContainer.clientWidth;
-      const scrolled = scrollContainer.scrollLeft;
-
-      const rotation = (scrolled / maxScroll) * 360;
-      icon.style.transform = `rotate(${rotation}deg)`;
-    }
-  }
-
   const redirect = () => {
     if (email && !error) {
       window.location.href = "https://app.loch.one/welcome";
@@ -113,7 +100,7 @@ const App = () => {
                 />
               </p>
               <img
-                src="/barchart.svg"
+                src="/clock.svg"
                 alt=""
                 className="w-[28px] h-[28px] absolute top-[-5px] left-[14px]"
               />
@@ -138,9 +125,104 @@ const App = () => {
             </div>
           </div>
         </div>
+        <div className="flex flex-col md:flex-row md:justify-between w-full">
+          <div className="w-[335px] h-[306px] relative">
+            <img
+              src="/cohorts-1@2x.png"
+              alt=""
+              className=" w-full h-full object-cover"
+            />
+          </div>
+          <div className="flex flex-col gap-y-[16px] w-full max-w-[313px] md:items-end ">
+            <img src="/eye.svg" alt="" className="w-[32px] h-[32px]" />
+            <h2 className="font-medium md:text-right text-[31px] text-[#F2F2F2] stroke-[#000000] leading-9">
+              Watch what the whales are doing
+            </h2>
+            <p className="text-[#F2F2F2] md:text-right font-medium text-[16px]">
+              All whales are not equal. Know exactly what the whales impacting
+              YOUR portfolio are doing.
+            </p>
+          </div>
+        </div>
+        <h5 className="ml-auto text-white text-[25px] font-medium">
+          Testimonials
+        </h5>
+        <div className="border-b border-b-[#E5E5E6]" />
+
+        <div className="flex">
+          <div className="absolute right-0 top-0 bottom-0 bg-gradient-to-l from-black/40 to-transparent w-[200px] md:w-[330px] h-full" />
+          <div
+            className="flex-1 mt-6 pb-[20px] flex overflow-x-auto hide-scrollbar items-center gap-5 -m-[40px] md:my-0 md:ml-28 md:-mr-[40px]"
+          >
+            <div className=" gap-[20px] p-[20px] rounded-[12px] bg-white flex-none w-[353px]">
+              <h2 className="text-[16px] font-semibold leading-[19.2px] text-[#19191A]">
+                Jack F{" "}
+                <span className="text-[#96979A] font-medium text-[13px] leading-[15.6px]">
+                  Ex Blockrock PM
+                </span>
+              </h2>
+              <div>&nbsp;</div>
+              <p className="font-normal text-[16px] leading-[19.2px] text-[#1D2129]">
+                “Love how Loch integrates portfolio analytics and whale watching
+                into one unified app.”
+              </p>
+            </div>
+            <div className=" gap-[20px] p-[20px] rounded-[12px] bg-white min-w-[353px]">
+              <h2 className="text-[16px] font-semibold leading-[19.2px] text-[#19191A]">
+                Yash P{" "}
+                <span className="text-[#96979A] font-medium text-[13px] leading-[15.6px]">
+                  Research, 3poch Crypto Hedge Fund
+                </span>
+              </h2>
+              <div>&nbsp;</div>
+              <p className="font-normal text-[16px] leading-[19.2px] text-[#1D2129]">
+                “I use Loch everyday now. I don't think I could analyze crypto whale trends markets without it. I'm addicted!”
+              </p>
+            </div>
+            <div className=" gap-[20px] p-[20px] rounded-[12px] bg-white min-w-[531px]">
+              <h2 className="text-[16px] font-semibold leading-[19.2px] text-[#19191A]">
+                Shiv S{" "}
+                <span className="text-[#96979A] font-medium text-[13px] leading-[15.6px]">
+                  Co-Founder Magic Labs
+                </span>
+              </h2>
+              <div>&nbsp;</div>
+              <p className="font-normal text-[16px] leading-[19.2px] text-[#1D2129]">
+                “Managing my own portfolio is helpful and well designed. What’s really interesting is watching the whales though. No one else has made whale tracking so simple.”
+              </p>
+            </div>
+          </div>
+        </div>
+        <img
+          src="/vector.svg"
+          alt=""
+          className="w-[60px] h-[60px] hidden md:block absolute z-10 bottom-[60px] left-[60px]"
+        />
       </div>
       <div className="h-full w-full  md:col-span-4 bg-[#FFFFFF] flex flex-col items-center justify-center">
-        
+        <div className="flex flex-col w-full max-w-[365px] mx-auto p-[20px]">
+          <h2 className="text-[#B0B1B3] font-medium text-[35px] mb-[10px]">
+            Sign up for <br /> exclusive access.
+          </h2>
+          <input
+            className="bg-[#FFFFFF] border focus-within:outline-[#e6e5e5] hover:shadow-[#e6e5e5] shadow-[1px] stroke-[#e6e5e5] px-[24px] py-[20px] font-medium text-[16px] rounded-[8px]"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Your email address"
+          />
+          {error ? error : null}
+          <button
+            onClick={redirect}
+            className="bg-[#19191A] stroke-[#19191A] rounded-[8px] font-semibold py-[10px] text-[16px] mt-[10px] text-[#FFFFFF]"
+          >
+            Get Started
+          </button>
+          <p className="text-[#19191A] font-semibold py-[18px] px-[12px] mt-[12px]">
+            You&apos;ll receive an email with an invite link to join.
+          </p>
+        </div>
       </div>
     </div>
   );
