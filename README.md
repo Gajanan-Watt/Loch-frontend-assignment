@@ -3,6 +3,11 @@
 
 It's a frontend assignment given by Loch. It is completed with the help of ReactJs and TailwindCSS.
 
+## How to run project locally
+
+Follow the commands given below:
+- npm install
+- npm run dev
 
 ## Authors
 
